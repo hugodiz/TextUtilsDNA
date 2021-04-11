@@ -45,11 +45,12 @@ Documentation work in progress - in the meantime, I've tried to make the Excel I
 ## Support and participation
 Any help or feedback is greatly appreciated, including ideas and coding initiatives to fix, improve or expand this suite of functions, as well as any detailed effort of testing and probing, to check the functions indeed are 100% bug-free.
 
-Please log bugs and feature suggestions on the GitHub 'Issues' page. Note in particular that, since this is all in an early stage, I expect we may find a few bugs in these functions. I expect that if one does find a bug, it will likely manifest in one of three likely ways:
+Please log bugs and feature suggestions on the GitHub 'Issues' page.   
+Note in particular that, since this is all in an early stage, I expect we may find a few bugs in these functions. I expect that if one does find a bug, it will likely manifest in one of three likely ways:
 
 1. The function returns #VALUE! when, by all accounts, it should be returning an actual, non-error value   
 2. The function returns an incorrect value, a value not in line with what the function spec says it should return, given the inputs   
-3. Calculating the function makes Excel crash (just closes without warning or message) - see why this may happen in the "ExcelFunctions - NOTES.md" doc.   
+3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in the "ExcelFunctions - NOTES.md" doc - "NOTE about ExceptionSafe and ThreadSafe functions".
 
 For general comments or discussion, use the Excel-DNA forum at https://groups.google.com/forum/#!forum/exceldna
 
