@@ -2,7 +2,7 @@
 High-performance text wrangling and fuzzy lookup functions for Excel, powered by .NET via ExcelDNA
 
 ## Introduction
-These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching are written in VB.NET and plugged-in to Excel as an XLL (C API).
+These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching are written in VB.NET and plugged-in to Excel as an **xll** (C API).
 
 These functions rely entirely on ExcelDNA (by Govert van Drimmelen) in order for them to be exposed as Excel functions.
 
@@ -28,7 +28,13 @@ Without dynamic arrays in your Excel version, I believe you will need to pre-sel
 
 At the end of the day, if you can, you really should be using Excel 365, it's worth it.
 
-ExcelDNA will automatically produce 32 and 64-bit versions of the XLL if you build the project in Visual Studio - you'll then use the appropriate **xll** binary for your system (meaning, check the *bitness* of your Excel version).
+ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you build the project in Visual Studio - you'll then use the appropriate one for your system (meaning, check the *bitness* of your Excel version). Deep down, an **xll** is but a **dll** which implements (besides the function you want to expose to Excel), additional functions required by the Excel C API protocol in order for the Excel application to first "register" your function, then later consume it when called by the user.
+
+This approach is in contrast with how a native (or .NET managed) **dll** would *normally* be consumed by Excel:
+
+Running the risk of oversimplifying or being innacurate somewhere (to which any correction is greatly appreciated): *normally*, a VBA layer would be required whereby the **dll** would first be made COM-interoperable and added to the Windows registry, so that VBA might "see" it, and then your function would become usable from within VBA. So then, assuming this is a function you'd ultimately want to call from a worksheet, you'd need to create a VBA wrapper around your function, so that the worksheets would have something to call.    
+
+One big advantage of ExcelDNA is how simple deployment is in comparison, especially when your goal is creating fast worksheet functions for your users.
 
 ## Getting Started
 Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** C API Excel add-in, in general, and any other ExcelDNA add-in, in particular.
