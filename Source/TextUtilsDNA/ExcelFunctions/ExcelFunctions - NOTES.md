@@ -5,13 +5,13 @@ The algorithms used in these functions (most notably LSDLOOKUP) are slight varia
 
 The LSDLOOKUP search uses a minimalistic implementation of the Levenshtein distance metric with a "capped" algorithm, ie.:   
 - it early-discards the dynammic programming calculations where the Lev dist is already too high, given the context   
-- it only computes a minimal matrix diagonal strip required to either compute the dist or conclude it's too high
+- it only computes a minimal matrix diagonal strip required to either compute the distance or conclude it's too high
 
 The best K results "thus far" are kept in a binary max-heap serving as a priority queue which only holds K items at a time, such that:   
 - K is specified by the user
 - Higher priority means "worse match", and these nodes remain closer to the root (the root is the Kth worst match)
 - Upon enqueing new items, the "worst" matches beyond K are automatically dequeued:   
-    - In other words, since the heap only holds K items, it automatically dequeues ("serves") the highest priority item to make room for a new item. Each such dequeued item is in this case discarded (ie. didn't make the best K);
+    - In other words, since the heap only holds K items, it automatically dequeues ("serves") the highest priority item to make room for a new item. Each such dequeued item is in this case discarded (ie. didn't make the best K)
 - At the end of the function, the items are dequeued in turn, "worst match first", until the heap is empty, except now the dequeued items are placed in the Output, as they represent the best K matches.
 
 ## NOTE about ExceptionSafe and ThreadSafe functions:
@@ -24,11 +24,11 @@ So, if you can get Excel to systematically crash when doing something with these
 Excel parallelizes worksheet calculations by default where it can, say for instance when dragging down a VLOOKUP of single lookup_value inputs, over an very large column of lookup_value input cells.
 
 Some TextUtilsDNA functions (most notably LSDLOOKUP) implement some Parallel For loops instead of sequential ones.These parallel For's, when used here, are always trivial in that they're ideally paralellizable, namely:   
-- They're used when the function allows the main function input to be a range of independent scalar inputs;   
-- In LSDLOOKUP, that main input is a column A(Hx1) of lookup_value(s), each element being A(h);   
-- Each parallel thread will only do work on a disjunct slice of A(start..end) and writes to a correspondingly disjunct slice of FnOutput(start..end, 1..K);
-- There are no data races because no thread ever attempts to write anywhere another thread might write to;   
-- Also, Read/Write operations to the Excel Session Caches are safe because we're using .NET Concurrent Dicts;   
+- They're used when the function allows the main function input to be a range of independent scalar inputs  
+- In LSDLOOKUP, that main input is a column A(Hx1) of lookup_value(s), each element being A(h)  
+- Each parallel thread will only do work on a disjunct slice of A(start..end) and writes to a correspondingly disjunct slice of FnOutput(start..end, 1..K)
+- There are no data races because no thread ever attempts to write anywhere another thread might write to   
+- Also, Read/Write operations to the Excel Session Caches are safe because we're using .NET Concurrent Dicts 
 - The function will split the workloads uniformly over all available cores using 1 Thread per Core (like Excel does).
 
 The main point is that our deliberate .NET parallelization kicks-in precisely when Excel normal parallelization wouldn't: when calling these functions just once but with multi-cell A(Hx1) - It is essential to explicitly parallelize here.
