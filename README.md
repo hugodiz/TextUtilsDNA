@@ -34,10 +34,24 @@ Documentation work in progress - but it's going to be pretty much the same proce
 As a helpful reference by analogy, a very similar structure can be seen in the following github link, because those too are Excel functions made in .NET and exposed to Excel using ExcelDNA:
 https://github.com/Excel-DNA/XFunctions
 
+Binary releases are hosted on GitHub: (to do: set up releases and link)  
+In principle, downloading a copy of either the 32 or 64-bit TextUtilsDNA **xll** binary and having Excel ready go on your end, then adding the **xll** as an "Excel addin" in the Developer tab, is all one should need to do in order to get the functions up and running
 
+However, I will also include a consolidated step-by-step approach, should you wish to build this project from scratch using Visual Studio but not at all be already familiar with that environment. This section will be written primarily for those who are quite at home with Excel and VBA and would like to expand that familiarity into the .NET/VisualStudio/ExcelDNA toolset. However, my instructions here won't preclude the need (or at least the very strong recommendation) that you have a look at the series of excellent Youtube tutorials by Govert on getting started with coding .NET functions for Excel via ExcelDNA:  
 
 ## Examples
 Documentation work in progress - in the meantime, I've tried to make the Excel IntelliSense auto-complete help as comprehensive as possible. I'll complement that with usage examples here.
+
+## Support and participation
+Any help or feedback is greatly appreciated, including ideas and coding initiatives to fix, improve or expand this suite of functions, as well as any detailed effort of testing and probing, to check the functions indeed are 100% bug-free.
+
+Please log bugs and feature suggestions on the GitHub 'Issues' page. Note in particular that, since this is all in an early stage, I expect we may find a few bugs in these functions. I expect that if one does find a bug, it will likely manifest in one of three likely ways:
+
+1. The function returns #VALUE! when, by all accounts, it should be returning an actual, non-error value   
+2. The function returns an incorrect value, a value not in line with what the function spec says it should return, given the inputs   
+3. Calculating the function makes Excel crash (just closes without warning or message) - see why this may happen in the "ExcelFunctions - NOTES.md" doc.   
+
+For general comments or discussion, use the Excel-DNA forum at https://groups.google.com/forum/#!forum/exceldna
 
 ## License
 The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
