@@ -10,7 +10,8 @@ The UNPACK utility function also uses the extremely popular .NET library NewtonS
 https://www.newtonsoft.com/json  
 Here I use it for deserialization of Excel arrays encoded as JSON strings.
 
-I have attempted to optimize these functions, including using parallelization in a way analogous to what Excel does where it can, when using built-in functions.  
+I have attempted to optimize these functions, including using parallelization in a way analogous to what Excel does where it can, when using built-in functions.
+
 The ability to create .NET-powered functions such as these and then exposing those functions to Excel worksheets is exactly the type of thing that is made dramatically easier, more tracktable and more seamless using the excellent ExcelDNA open-source project.
 
 This code is itself open-source (MIT license) and these functions, whilst (hopefully) useful on their own, are also meant as a small contribution to showcase the ExcelDNA toolset to experienced Excel users and programmers who may at times either feel limited by VBA, or tend to build extremely complex programs in VBA which would be better suited for .NET.
@@ -24,6 +25,7 @@ These functions are ideally meant to be used with Excel 365, because they they l
 However, calling LSDLOOKUP with a scalar lookup_value and K = 1 should work without problems in most Excel versions. Basically, you should be fine whenever one of these functions would return a scalar anyway.
 
 Without dynamic arrays in your Excel version, I believe you will need to pre-select a range of the right size, then use a TextUtilsDNA function normally, but trigger it with ctrl + shift + Enter instead of just Enter. Otherwise, Excel might just show you the upper-left corner of the result instead of the whole (array) result.  
+
 At the end of the day, if you can, you really should be using Excel 365, it's worth it.
 
 ExcelDNA will automatically produce 32 and 64-bit versions of the XLL if you build the project in Visual Studio - you'll then use the appropriate **xll** binary for your system (meaning, check the *bitness* of your Excel version).
@@ -46,6 +48,7 @@ Documentation work in progress - in the meantime, I've tried to make the Excel I
 Any help or feedback is greatly appreciated, including ideas and coding initiatives to fix, improve or expand this suite of functions, as well as any detailed effort of testing and probing, to check the functions indeed are 100% bug-free.
 
 Please log bugs and feature suggestions on the GitHub 'Issues' page.   
+
 Note in particular that, since this is all in an early stage, I expect we may find a few bugs in these functions. I expect that if one does find a bug, it will likely manifest in one of three likely ways:
 
 1. The function returns #VALUE! when, by all accounts, it should be returning an actual, non-error value   
