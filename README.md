@@ -53,7 +53,7 @@ Note in particular that, since this is all in an early stage, I expect we may fi
 
 1. The function returns #VALUE! when, by all accounts, it should be returning an actual, non-error value   
 2. The function returns an incorrect value, a value not in line with what the function spec says it should return, given the inputs   
-3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in the "ExcelFunctions - NOTES.md" doc  **->**  "NOTE about ExceptionSafe and ThreadSafe functions".
+3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in the "ExcelFunctions - NOTES.md" doc  **=>**  "NOTE about ExceptionSafe and ThreadSafe functions".
 
 ## License
 The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
