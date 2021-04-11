@@ -46,7 +46,7 @@ https://www.youtube.com/user/govertvd
 Documentation work in progress - in the meantime, I've tried to make the Excel IntelliSense auto-complete help as comprehensive as possible. I'll complement that with usage examples here.
 
 ## Support and participation
-Any help or feedback is greatly appreciated, including ideas and coding efforts to fix, improve or expand this suite of functions, as well as any efforts of testing and probing, to check the functions indeed are 100% bug-free.
+Any help or feedback is greatly appreciated, including ideas and coding efforts to fix, improve or expand this suite of functions, as well as any efforts of testing and probing, to make sure the functions are indeed 100% bug-free.
 
 Please log bugs and feature suggestions on the GitHub 'Issues' page.   
 
