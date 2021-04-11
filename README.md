@@ -10,7 +10,7 @@ The UNPACK utility function also uses the extremely popular .NET library NewtonS
 https://www.newtonsoft.com/json  
 Here I use it for deserialization of Excel arrays encoded as JSON strings.
 
-I have attempted to optimize these functions, including using parallelization in a way analogous to what Excel does where it can, when using built-in functions. For more details on the approach, see "ExcelFunctions - NOTES.md" doc  **=>**  "NOTE about parallelization of loops in these functions".
+I have attempted to optimize these functions, including using parallelization in a way analogous to what Excel does where it can, when using built-in functions. For more details on the approach, see "ExcelFunctions - NOTES.md" doc  **=>**  "Note about parallelization of loops in these functions".
 
 The ability to create .NET-powered functions such as these and then exposing those functions to Excel worksheets is exactly the type of thing that is made dramatically easier, more tracktable and more seamless using the excellent ExcelDNA open-source project.
 
@@ -20,7 +20,7 @@ Hence, depending on your project's size, performance and interoperability needs,
 As of 2021, ExcelDNA is one of the best ways to bring the power of .NET (C#/VB.NET/F#) to Excel. If this is new to you please visit:  
 https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna/  
 as a starting point.
-
+[asdasdasd](www.google.pt)
 These functions are ideally meant to be used with Excel 365, because they levarage the power of dynamic arrays.  
 However, calling LSDLOOKUP with a scalar lookup_value and K = 1 should work without problems in most Excel versions. Basically, you should be fine whenever one of these functions would return a scalar anyway.
 
@@ -54,7 +54,7 @@ Note in particular that, since this is all in an early stage, I expect we may fi
 
 1. The function returns #VALUE! when, by all accounts, it should be returning an actual, non-error value   
 2. The function returns an incorrect value, a value not in line with what the function spec says it should return, given the inputs   
-3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in the "ExcelFunctions - NOTES.md" doc  **=>**  "NOTE about ExceptionSafe and ThreadSafe functions".
+3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in the "ExcelFunctions - NOTES.md" doc  **=>**  "Note about ExceptionSafe and ThreadSafe functions".
 
 ## License
 The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
