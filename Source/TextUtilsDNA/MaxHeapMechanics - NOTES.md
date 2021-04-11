@@ -56,7 +56,7 @@ For this reason, we call (Threshold, -1, -1) entries "balloons", because any val
 
 The heap works by 2 actions: try inserting (enqueueing) a node, and extracting (dequeuing) the highest priority node. Interestingly, the act of extraction works by inserting a dummy value (an "anchor") which is the functional antithesis of the "ballon".
 
-## ENQUEUE:
+## Enqueue:
 The heap always maintains the following property, whenever something is enqueued or dequeued:
 - A parent is always a worse match (or equal, although there are no real ties here) than its children
 - So, when trying to enqueue a node, that "candidate" node is tested against BestK[1] first:
@@ -73,7 +73,7 @@ The heap always maintains the following property, whenever something is enqueued
 - If candidate hasn't moved (which must happen eventually), then it's settled at that point and the heap property is guaranteed to hold
 - Note how the insertion of a node always takes a logarithmic(K) number of operations, in terms of time complexity
 
-## DEQUEUE:
+## Dequeue:
 By the end of scanning B, whatever the heap holds are the best K matches found for our A(h). How to retrieve them in order?
 
 Since we want to extract each of them by order, so we can fill the Output(h, ..) row and present results by best to worst and favouring "first found" entries when the Lev score is the same, we really just dequeue each item sequentially, making sure that each time we do it, we're extracting the highest priority element (ie. the worst match in the best K), and then we keep filling the Output row "back to front".
