@@ -34,7 +34,7 @@ Our array becomes a binary tree by simply defining filial relationships between 
 
 - Every node can have zero, one or two children. The highest possible index is K = 6. The root node is BestK[1]
 - A node's first (ie. left) or *only* child always has position Child1Pos = ParentPos * 2
-    - Therefore, ParentPos * 2 > K is equivalent to "Parent not having children / node not being a parent"
+    - Therefore, ParentPos * 2 > K is equivalent to "Parent not having children" ie. "node not being a parent"
         - In the example, this applies to nodes 4, 5 and 6
         - Also in the example, nodes 1, 2, 3 have children
 - A node's second(right) child always has position = Child2Pos = ParentPos * 2 + 1
@@ -47,11 +47,9 @@ Our array becomes a binary tree by simply defining filial relationships between 
         - Therefore, this parent has a single child
     - As stated already, in the example, this applies to node 3
 
-The heap starts by being initialized with all nodes = (Threshold, -1, -1)
-    Threshold = typo_tolerance + 1, where typo_tolerance is the user-specified maximum allowed Levenshtein Distance
-    This means that any match at all which is not rejected a priori due to not respecting the threshold,
-        will be "better" than (Threshold, -1, -1), because it's Lev dist will be < Threshold
-    For this reason, we call (Threshold, -1, -1) entries "idles", because anything can overtake them
+The heap starts by being initialized with all nodes = (Threshold, -1, -1), where Threshold = *typo_tolerance* + 1, and where *typo_tolerance* is the user-specified maximum allowed Levenshtein Distance. This means that any match at all which is not rejected a priori due to not respecting the threshold, will trivially always be "better" than (Threshold, -1, -1), since it's Lev dist must be < Threshold by definition.
+
+For this reason, we call (Threshold, -1, -1) entries "idles", because any valid match at all will overtake them, ie. will be "better than nothing".
 
 The heap works by 2 actions: try inserting (enqueueing) a node, and dequeuing the highest priority node
 
