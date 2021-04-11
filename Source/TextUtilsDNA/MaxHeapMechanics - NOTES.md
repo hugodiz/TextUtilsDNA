@@ -1,5 +1,5 @@
 # MaxHeapMechanics notes:
-(a "Best K matches" Priority Queue implementation) 
+(a "Best K matches" Priority Queue implementation)  
 by Hugo Diz, 2021
 
 This module implements a data structure for holding the "best K results so far", in the context of scanning a (possibly 2D) array B row by row (given an input text A(h)), testing the quality of the match between A(h) and each such B(m,n), then storing the critical info of B(m,n) in the BestK max heap (if indeed it sits among the best K matches so far).
