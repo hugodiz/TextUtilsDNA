@@ -33,7 +33,7 @@ Let's say K = 6. Here's the heap structure
 Our array becomes a binary tree by simply defining filial relationships between nodes on the basis of their index positions. Specifically:
 
 - Every node can have zero, one or two children. The highest possible index is K = 6. The root node is BestK[1]
-- A node's first(left) or only child always has position Child1Pos = ParentPos * 2
+- A node's first (ie. left) or *only* child always has position Child1Pos = ParentPos * 2
     - Therefore, ParentPos * 2 > K is equivalent to "Parent not having children / node not being a parent"
         - In the example, this applies to nodes 4, 5 and 6
         - Also in the example, nodes 1, 2, 3 have children
