@@ -28,7 +28,7 @@ Without dynamic arrays in your Excel version, I believe you will need to pre-sel
 
 At the end of the day, if you can, you really should be using Excel 365, it's worth it.
 
-ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you build the project in Visual Studio - you'll then use the appropriate one for your system (meaning, check the *bitness* of your Excel version). Deep down, an **xll** is but a **dll** which implements (besides the function you want to expose to Excel), additional functions required by the Excel C API protocol in order for the Excel application to first "register" your function, then later consume it when called by the user.
+ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you build the project in Visual Studio - you'll then use the appropriate one for your system (meaning, check the *bitness* of your Excel version). Deep down, an **xll** is but a **dll** which implements (besides the function you want to expose to Excel), additional functions required by the Excel C API protocol in order for the Excel application to first "register" your function, then later consume it when called by the user. Hence, an **xll** is a **dll** which can be *added* as an Excel add-in in exactly the same fashion you'd normally proceed to *add* a **xla** or **xlam** Excel add-in.
 
 This approach is in contrast with how a native (or .NET managed) **dll** would *normally* be consumed by Excel, if not via the Excel C API:
 
