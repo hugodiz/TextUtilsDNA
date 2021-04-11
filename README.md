@@ -37,7 +37,7 @@ https://github.com/Excel-DNA/XFunctions
 Documentation work in progress - in the meantime, I've tried to make the Excel IntelliSense auto-complete help as comprehensive as possible. I'll complement that with usage examples here.
 
 ## License
-The TextUtilsDNA VB.NET functions are published under the standard MIT license (with the associated Excel integration relying on ExcelDNA (Zlib License)):   
+The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
 https://excel-dna.net/   
 https://github.com/Excel-DNA/ExcelDna
 
