@@ -1,5 +1,5 @@
 # ExcelIntelliSense notes: 
-(using ExcelDna.IntelliSense by Govert van Drimmelen)
+(using ExcelDna.IntelliSense)
 
 This class contains code for embedding Excel auto-complete intellisense into the TextUtilsDNA xll add-in, using ExcelDNA. The usage of this feature is STRONGLY recommended because I have included a lot of function usage help through this medium. The contents of the ExcelIntelliSense help are those present in the function signatures in the actual code. 
 
