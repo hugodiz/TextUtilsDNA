@@ -101,7 +101,10 @@ Hint: If B is 2D then =INDEX(UNPACK(""[m,n]"", [1 Or 2]) gets each coord")>
 
             ' Base threshold to beat (based on user specification) : any valid match must have Lev dist lower than this
             '     If set to negative, that means "infinity" (in practice, MaxInt)
-            Dim FnThres = If(typo_tolerance < 0, MaxInt, typo_tolerance + 1)
+            '     Hence, the maximum possible user-specifiable typo_tolerance = MaxInt - 1
+            '     In practice, this is far above anything that can be encountered in Excel
+            '         given the normal caps on string sizes within Excel cells, hence it amounts to "no imposed limit"
+            Dim FnThres = If(typo_tolerance < 0, MaxInt, If(typo_tolerance = MaxInt, MaxInt, typo_tolerance + 1))
 
             ' Number of results to return for each A(h) 
             '     ie.best K matches by greatest closeness, the order found ; also, number of columns in the Output range
