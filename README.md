@@ -2,14 +2,13 @@
 High-performance text wrangling and fuzzy lookup functions for Excel, powered by .NET via ExcelDNA
 
 ## Introduction
-These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching 
-    are written in VB.NET and plugged-in to Excel as an XLL (C API).
+These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching are written in VB.NET and plugged-in to Excel as an XLL (C API).
 
 These functions rely entirely on ExcelDNA (by Govert van Drimmelen) in order for them to be exposed as Excel functions.
 
 The UNPACK utility function also uses the extremely popular .NET library NewtonSoft.Json (by James Newton-King)
-     https://www.newtonsoft.com/json
-     Here I use it for JSON deserialization of arrays
+https://www.newtonsoft.com/json
+Here I use it for JSON deserialization of arrays
 
 I have attempted to optimize these functions, including using parallelization in a way akin to what Excel would do at times.
 The ability to create .NET-powered functions such as these and then exposing those functions to Excel worksheets
