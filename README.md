@@ -10,7 +10,7 @@ The UNPACK utility function also uses the extremely popular .NET library NewtonS
 https://www.newtonsoft.com/json  
 Here I use it for deserialization of Excel arrays encoded as JSON strings.
 
-I have attempted to optimize these functions, including using parallelization in a way akin to what Excel would do at times.  
+I have attempted to optimize these functions, including using parallelization in a way analogous to what Excel does where it can, when using built-in functions.  
 The ability to create .NET-powered functions such as these and then exposing those functions to Excel worksheets is exactly the type of thing that is made dramatically easier, more tracktable and more seamless using the excellent ExcelDNA open-source project.
 
 This code is itself open-source (MIT license) and these functions, whilst (hopefully) useful on their own, are also meant as a small contribution to showcase the ExcelDNA toolset to experienced Excel users and programmers who may at times either feel limited by VBA, or tend to build extremely complex programs in VBA which would be better suited for .NET.
