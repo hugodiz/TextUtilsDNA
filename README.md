@@ -14,7 +14,7 @@ High-performance text wrangling and fuzzy lookup functions for Excel, powered by
 
 **REGET:** Similar idea as RESUB, except here we *extract* the **i**th occurrence of the pattern P in each input (or optionally only the **j**th captured group of the **i**th occurence) and simply return the extracted bit from each input.
 
-**RECOUNTIF:** Recycles the P and Q filter ideas from LSDLOOKUP, and here we conditionally count the entries from an input range which simultaneously exhibit the specified regular expression pattern P (if specified) and do NOT exhibit the regular expresion pattern Q (if specified). So it is like the built-in COUNTIF but for regular expressions.
+**RECOUNTIF:** This is based on the P and Q filter ideas from LSDLOOKUP, but here we conditionally count the entries from an input range which simultaneously exhibit the specified regular expression pattern P (if specified) and do NOT exhibit the regular expresion pattern Q (if specified). So it is like the built-in COUNTIF but for regular expressions.
 
 **GETCOUNTS:** Counts the number of occurrences of each distinct text string in an input range (i.e. it builds the hit counts of each word into a Dictionary(string : integer), which is ultimately output as a range with 2 columns for (Keys, Values), and as many rows as unique words. The output is not sorted in any particular order, because GETCOUNTS can be easily composed with the Excel built-in SORT in order to conform to any desired sorting. Also, if the *case-sensitive* flag is set to false, the output deliberately shows all words converted to uppercase to remind us of the fact that it did not care about Case when counting.
 
