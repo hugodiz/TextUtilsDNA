@@ -1,6 +1,14 @@
 # TextUtilsDNA
 High-performance text wrangling and fuzzy lookup functions for Excel, powered by .NET via ExcelDNA
 
+LSDLOOKUP
+UNPACK
+TEXTSPLIT
+RESUB
+REGET
+RECOUNTIF
+GETCOUNTS
+
 ## Introduction
 These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching are written in VB.NET and plugged-in to Excel as an **xll** add-in.
 
@@ -11,6 +19,8 @@ https://www.newtonsoft.com/json
 Here I use it for deserialization of Excel arrays encoded as JSON strings.
 
 I have attempted to optimize these functions, including using parallelization in a way analogous to what Excel does where it can, when using built-in functions. For more details on the approach, see [ExcelFunctions - NOTES.md](https://github.com/hugodiz/TextUtilsDNA/blob/main/Source/TextUtilsDNA/ExcelFunctions/ExcelFunctions%20-%20NOTES.md)  **=>**  "Note about parallelization of loops in these functions".
+
+Also, for those who enjoy thinking about algorithms in detail, I've commented the LSDLOOKUP code extensively. Although the fundamental techniques are well-known and rather standard (ie. Levenshtein distance calculation and a binary max-heap-based priority queue), I have adapted these techniques and tailored them to purpose so that each piece would be minimal, economic and attach seamlessly to the overall LSDLOOKUP function. I have enjoyed the process thoroughly and tried to document it well. In addition to the code itself, I'd invite you to have a look at [MaxHeapMechanics - NOTES.md](https://github.com/hugodiz/TextUtilsDNA/blob/main/Source/TextUtilsDNA/MaxHeapMechanics%20-%20NOTES.md) and also the first section of [ExcelFunctions - NOTES.md](https://github.com/hugodiz/TextUtilsDNA/blob/main/Source/TextUtilsDNA/ExcelFunctions/ExcelFunctions%20-%20NOTES.md)
 
 The ability to create .NET-powered functions such as these and then exposing those functions to Excel worksheets is exactly the type of thing that is made dramatically easier, more tracktable and more seamless using the excellent ExcelDNA open-source project.
 
