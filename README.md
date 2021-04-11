@@ -1,13 +1,22 @@
 # TextUtilsDNA
 High-performance text wrangling and fuzzy lookup functions for Excel, powered by .NET via ExcelDNA
 
-LSDLOOKUP
-UNPACK
-TEXTSPLIT
-RESUB
-REGET
-RECOUNTIF
-GETCOUNTS
+**LSDLOOKUP:** takes a column of lookup_values and retrieves the K closest matches to each lookup_value, as found in a lookup_array, where "closest" means "least typos", and and the "number of typos" is basically the Levenshtein distance between 2 text strings (check out the wikipedia page for Levenshtein Distance if unfamiliar). Searches may be narrowed down in 3 possible ways simultaneously: 
+- by defining a maximum allowed Levenshtein Distance in matches
+- by requiring matches to exhibit a regular expression pattern P (a P positive filter, if you will)
+- by requiring matches to NOT exhibit a regular expression pattern Q (a negative Q filter, if you wil)
+
+**UNPACK:** because LSDLOOKUP can optionally give back a match's coordinates in the lookup_array instead of the text itself, and because lookup_array is allowed to be 2D, we need a way to represent arrays in single cells (in this case containing a tuple [row index, column index]) - the convention we'll use is JSON. This function takes a JSON string representation of any 1D or 2D array(ie. [A(1), A(2), ..] or [[A(1,1), A(1,2), ..], [A(2,1), A(2,2), ..],..]) and produices the actual array. Note that 1D arrays are single rows (not columns) by convention.
+
+**TEXTSPLIT:** the inverse of the built-in Excel function TEXTJOIN. TEXTSPLIT takes a single (scalar input) string and returns a row containing each piece of the string, resulting from splitting the string according to a delimiter.
+
+**RESUB:** takes an input array (2D allowed) and returns a similarly-sized array, where each entry has undergone a regular expression transformation (similar to .NET Regex.Replace). A regular expression pattern P is specified, as well as a replacement string R. All occurrences of P in each input are replaced by R. Although R must be a literal string, it may include the usual $**G** methodology (for re-using pieces of the pattern), where **G** is an integer number representing the **G**th captured group, if specified in P.
+
+**REGET:** Similar idea as RESUB, except here we *extract* the **i**th occurrence of the pattern P in each input (or optionally only the **j**th captured group of the **i**th occurence) and simply return the extracted bit from each input.
+
+**RECOUNTIF:** Recycles the P and Q filter ideas from LSDLOOKUP, and here we conditionally count the entries from an input range which simultaneously exhibit the specified regular expression pattern P (if specified) and do NOT exhibit the regular expresion pattern Q (if specified). So it is like the built-in COUNTIF but for regular expressions.
+
+**GETCOUNTS:** Counts the number of occurrences of each distinct text string in an input range (i.e. it builds the hit counts of each word into a Dictionary(string : integer), which is ultimately output as a range with 2 columns for (Keys, Values), and as many rows as unique words. The output is not sorted in any particular order, because GETCOUNTS can be easily composed with the Excel built-in SORT in order to conform to any desired sorting. Also, if the *case-sensitive* flag is set to false, the output deliberately shows all words converted to uppercase to remind us of the fact that it did not care about Case when counting.
 
 ## Introduction
 These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching are written in VB.NET and plugged-in to Excel as an **xll** add-in.
