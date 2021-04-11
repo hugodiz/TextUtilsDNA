@@ -7,7 +7,7 @@ This module implements a data structure for holding the "best K results so far",
 The foundation of this technique is the well-known method of using a binary tree with an imposed "heap property" (ie. an hierarchy between nodes which is enforced all the time by occasionaly requiring nodes to switch contents). In our case, we define and tweak the specifics of these relationships and the acts of "enqueueing" and "dequeueing", in order to fit our purpose of keeping a record of the "best K matches so far", as well as a way to ensure we always efficiently get a sorted list out of the heap, once LSDLOOKUP is done scanning the lookup_array B.
 
 The match value of any given B(m,n) (ie. its priority) is represented by a triplet of integers   
-**(**Levenshtein Distance to A(h), m, n**)**   
+**(** Levenshtein Distance to A(h) **,** m **,** n **)**   
 
 That is, the row and column positions of B(m,n) in B (ie. [m,n]) are featured in the triplet and are part of the value.   
 This is because we must not admit the possibility of a tie between two B(m,n)'s, seeing as we want LSDLOOKUP to be stable in the sense that it always resolves ties in the same predictable way.
