@@ -1,7 +1,10 @@
-# MaxHeapMechanics (a BestK Priority Queue implementation) notes: 
+# MaxHeapMechanics notes:
+(a "Best K matches" Priority Queue implementation) 
 by Hugo Diz, 2021
 
 This module implements a data structure for holding the "best K results so far", in the context of, given an input text A(h), scanning a (possibly 2D) array B row by row, testing the quality of a match between A(h) and each such B(m,n), then storing the critical info of that B(m,n) in the BestK max heap (if indeed it is among the best K matches so far).
+
+The foundation of this technique is the well-known method of using a binary tree with an imposed "heap property" (ie. an hierarchy between nodes which is enforced all the time by occasionaly required nodes to switch contents). In our case, we define and tweak the specifics of these relationships and the acts of "enqueueing and dequeueing", in order to fit our purpose of keeping a record of the "best K matches so far", as well as a way to ensure we always efficiently get a sorted list of of the heap, once LSDLOOKUP is done scanning the alookup_array.
 
 The match value of any given B(m,n) (ie. its priority) is represented by a triplet of integers   
 (Levenshtein Distance to A(h), m, n)   
@@ -16,9 +19,9 @@ The spec of LSDLOOKUP says it returns the first K occurrences of the least Leven
 - The score being equal, a match with lower m came first (upper row) (regardless of n), hence the lower m match is better
 - All else being equal (same score, same row), a match with lower n is better, because rows are scanned left-to-right.
 
-This suggests a natural way to compare triplets, implemented in the Precedes function: "precedes" means "it's a better match".
+This suggests a natural way to compare triplets, implemented in the "Precedes" function: "precedes" means "it's a better match".
 
-The heap is implemented via an array with K+1 entries, BestK[x], where x = 0..K ; BestK[0] is never used, just ignore it
+Under the hood, our heap is just an array with K+1 entries, BestK[x], where x = 0..K ; BestK[0] is never used, just ignore it
 Let's say K = 6. Here's the heap structure
  
                                                   BestK[1]
@@ -27,20 +30,22 @@ Let's say K = 6. Here's the heap structure
                                         /     \              /     
                                 BestK[4]    BestK[5]    BestK[6]  
 
-Every node can have zero, one or two children. The highest possible index is K = 6. The root node is BestK[1]
-A node's first(left) or only child always has position Child1Pos = ParentPos * 2
-    Therefore, ParentPos * 2 > K is equivalent to "Parent not having children / node not being a parent"
-        In the example, this applies to nodes 4, 5 and 6
-    Also in the example, nodes 1, 2, 3 have children
-A node's second(right) child always has position = Child2Pos = ParentPos * 2 + 1
-    Therefore, ParentPos * 2 + 1 > K is equivalent to "Parent not having a second child"
-        In the example, this applies to node 3
+Our array becomes a binary tree by simply defining filial relationships between nodes on the basis of their index positions. Specifically:
 
-A corolary is that if ParentPos * 2 = K, this means simultaneously that:
-    node has children
-    node does not have a second child
-     Therefore, this parent has a single child
-    As stated already, in the example, this applies to node 3
+- Every node can have zero, one or two children. The highest possible index is K = 6. The root node is BestK[1]
+- A node's first(left) or only child always has position Child1Pos = ParentPos * 2
+    - Therefore, ParentPos * 2 > K is equivalent to "Parent not having children / node not being a parent"
+        - In the example, this applies to nodes 4, 5 and 6
+        - Also in the example, nodes 1, 2, 3 have children
+- A node's second(right) child always has position = Child2Pos = ParentPos * 2 + 1
+    - Therefore, ParentPos * 2 + 1 > K is equivalent to "Parent not having a second child"
+        - In the example, this applies to node 3
+
+- A corolary to this is that if ParentPos * 2 = K, this means simultaneously that:
+    - node has children
+    - node does not have a second child
+        - Therefore, this parent has a single child
+    - As stated already, in the example, this applies to node 3
 
 The heap starts by being initialized with all nodes = (Threshold, -1, -1)
     Threshold = typo_tolerance + 1, where typo_tolerance is the user-specified maximum allowed Levenshtein Distance
@@ -50,7 +55,7 @@ The heap starts by being initialized with all nodes = (Threshold, -1, -1)
 
 The heap works by 2 actions: try inserting (enqueueing) a node, and dequeuing the highest priority node
 
-**ENQUEUE:**
+## ENQUEUE:
     The heap always maintains the following property, whenenver something is enqueued or dequeued:
         A parent is always a worse match (or equal, although there are no real ties here) than its children
     So when trying to enqueued a node, the node is tested against BestK[1] first:
@@ -69,7 +74,7 @@ The heap works by 2 actions: try inserting (enqueueing) a node, and dequeuing th
         If candidate hasn't moved, then it's settled, the heap property is guaranteed to hold
     Note how the insertion of a node always takes a logarithmic(K) number of operations, in terms of time complexity
 
-**DEQUEUE:**
+## DEQUEUE:
 By the end of scanning B, whatever the heap holds are the best K matches found for our A(h). How to retrieve them?
     Since we want to extract each of them by order, so we can fill the Output(h, ..) rowand present by order,
         we dequeue each item sequentially, each time extracting the highest priority element (ie. the worst match)
