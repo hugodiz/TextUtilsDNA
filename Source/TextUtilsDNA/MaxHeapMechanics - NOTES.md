@@ -21,7 +21,8 @@ The spec of LSDLOOKUP says it returns the first K occurrences of the least Leven
 
 This suggests a natural way to compare triplets, implemented in the "Precedes" function: "precedes" means "it's a better match".
 
-Under the hood, our heap is just an array with K+1 entries, BestK[x], where x = 0..K ; BestK[0] is never used, just ignore it
+Under the hood, our heap is just an array with K+1 entries, BestK[x], where x = 0..K ; BestK[0] is never used, we can just ignore it.
+
 Let's say K = 6. Here's the heap structure
  
                                                   BestK[1]
@@ -32,13 +33,13 @@ Let's say K = 6. Here's the heap structure
 
 Our array becomes a binary tree by simply defining filial relationships between nodes on the basis of their index positions. Specifically:
 
-- Every node can have zero, one or two children. The highest possible index is K = 6. The root node is BestK[1]
+- Every node can have zero, one or two children. The highest possible index in the example is K = 6. The root node is BestK[1].  
 - A node's first (ie. left) or *only* child always has position Child1Pos = ParentPos * 2
     - Therefore, ParentPos * 2 > K is equivalent to "Parent not having children" ie. "node not being a parent"
         - In the example, this applies to nodes 4, 5 and 6
-        - Also in the example, nodes 1, 2, 3 have children
-- A node's second(right) child always has position = Child2Pos = ParentPos * 2 + 1
-    - Therefore, ParentPos * 2 + 1 > K is equivalent to "Parent not having a second child"
+        - Also in the example, nodes 1, 2, 3 all have at least one child, ie. they all have children
+- A node's second (ie. right) child always has position = Child2Pos = ParentPos * 2 + 1
+    - Therefore, ParentPos * 2 + 1 > K is equivalent to "Parent not having a second child" ie. "Parent having at most one child"
         - In the example, this applies to node 3
 
 - A corolary to this is that if ParentPos * 2 = K, this means simultaneously that:
