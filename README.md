@@ -55,8 +55,6 @@ Note in particular that, since this is all in an early stage, I expect we may fi
 2. The function returns an incorrect value, a value not in line with what the function spec says it should return, given the inputs   
 3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in the "ExcelFunctions - NOTES.md" doc - "NOTE about ExceptionSafe and ThreadSafe functions".
 
-For general comments or discussion, use the Excel-DNA forum at https://groups.google.com/forum/#!forum/exceldna
-
 ## License
 The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
 https://excel-dna.net/   
