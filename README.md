@@ -30,7 +30,7 @@ At the end of the day, if you can, you really should be using Excel 365, it's wo
 
 ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you build the project in Visual Studio - you'll then use the appropriate one for your system (meaning, check the *bitness* of your Excel version). Deep down, an **xll** is but a **dll** which implements (besides the function you want to expose to Excel), additional functions required by the Excel C API protocol in order for the Excel application to first "register" your function, then later consume it when called by the user.
 
-This approach is in contrast with how a native (or .NET managed) **dll** would *normally* be consumed by Excel:
+This approach is in contrast with how a native (or .NET managed) **dll** would *normally* be consumed by Excel, if not via the Excel C API:
 
 Running the risk of oversimplifying or being innacurate somewhere (to which any correction is greatly appreciated): *normally*, a VBA layer would be required whereby the **dll** would first be made COM-interoperable and added to the Windows registry, so that VBA might "see" it, and then your function would become usable from within VBA. So then, assuming this is a function you'd ultimately want to call from a worksheet, you'd need to create a VBA wrapper around your function, so that the worksheets would have something to call.    
 
