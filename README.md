@@ -34,7 +34,7 @@ This approach is in contrast with how a native (or .NET managed) **dll** would *
 
 Running the risk of oversimplifying or being innacurate somewhere (to which any correction is greatly appreciated): *normally*, a VBA layer would be required whereby the **dll** would first be made COM-interoperable and added to the Windows registry, so that VBA might "see" it, and then your function would become usable from within VBA. So then, assuming this is a function you'd ultimately want to call from a worksheet, you'd need to create a VBA wrapper around your function, so that the worksheets would have something to call.    
 
-One big advantage of ExcelDNA is how simple deployment is in comparison, especially when your goal is creating fast worksheet functions for your users.
+One big advantage of ExcelDNA is how simple deployment is in comparison, especially when your goal is creating fast worksheet functions for your users. It handles the entirety of the Excel C API integration, allowing you to focus on the logic of your functions.
 
 ## Getting Started
 Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** C API Excel add-in, in general, and any other ExcelDNA add-in, in particular.
