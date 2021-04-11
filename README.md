@@ -21,7 +21,7 @@ https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna/
 as a starting point.
 
 These functions are ideally meant to be used with Excel 365, because they they levarage the power of dynamic arrays.  
-However, calling LSDLOOKUP with a scalar lookup_value and K = 1 should work without problems in most Excel versions. Basically, you should be fine whenever a function here wold return a scalar.
+However, calling LSDLOOKUP with a scalar lookup_value and K = 1 should work without problems in most Excel versions. Basically, you should be fine whenever one of these functions would return a scalar *anyway*.
 
 Without dynamic arrays in your Excel version, I believe you will need to pre-select a range of the right size, then use a TextUtilsDNA function normally, but trigger it with ctrl + shift + Enter instead of just Enter. Otherwise, Excel might just show you the upper-left corner of the result instead of the whole (array) result.  
 At the end of the day, if you can, you really should be using Excel 365, it's worth it.
