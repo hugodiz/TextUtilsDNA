@@ -28,7 +28,7 @@ Without dynamic arrays in your Excel version, I believe you will need to pre-sel
 
 At the end of the day, if you can, you really should be using Excel 365, it's worth it.
 
-ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you build the project in Visual Studio - you'll then use the appropriate one for your system (meaning, check the *bitness* of your Excel version). The above link to "ExcelDna - What and why" does a very good job of explaining what an **xll** is and how it relates to the other types of Excel add-ins available.
+ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you build the project in Visual Studio - you'll then use the appropriate one for your system (meaning, check the *bitness* of your Excel version). The above link to "ExcelDna - What and why" does a very good job of explaining what an **xll** is and how it relates to the other types of Excel add-ins available. From the end-user's point of view, an **xll** add-in is just something to be *added* to Excel, in a similar fashion to how you'd *add* a **xla** or **xlam** add-in.
 
 ## Getting Started
 Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** add-in, in general, and any other ExcelDNA add-in, in particular.
