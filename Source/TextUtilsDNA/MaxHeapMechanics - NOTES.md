@@ -1,23 +1,22 @@
-**MaxHeapMechanics** (a BestK Priority Queue implementation) **notes:** by Hugo Diz, 2021
-This module implements a data structure for holding the "best K results so far", in the context of, given an input text A(h),
-    scanning a (possibly 2D) array B row by row, testing the quality of a match between A(h) and each such B(m,n), then
-        storing the critical info of that B(m,n) in the BestK max heap (if indeed it is among the best K matches so far)
+# MaxHeapMechanics (a BestK Priority Queue implementation) notes: 
+by Hugo Diz, 2021
 
-The match value of any given B(m,n) (ie. its priority) is represented by a triplet of integers
-    (Levenshtein Distance to A(h), m, n)
-    That is, the row and column positions of B(m,n) in B (ie. [m,n]) are featured in the triplet and are part of the value
-    This is because we must not admit the possibility of a tie between two B(m,n)'s, seeing as we want LSDLOOKUP to be stable
-        in the sense that it always resolves ties in the same predictable way.
+This module implements a data structure for holding the "best K results so far", in the context of, given an input text A(h), scanning a (possibly 2D) array B row by row, testing the quality of a match between A(h) and each such B(m,n), then storing the critical info of that B(m,n) in the BestK max heap (if indeed it is among the best K matches so far).
 
-Note that throught this algorithm, "better" match == LOWER priority : the "worst match thus far" has the highest priority
+The match value of any given B(m,n) (ie. its priority) is represented by a triplet of integers   
+(Levenshtein Distance to A(h), m, n)   
 
-The spec of LSDLOOKUP says it returns the first K occurrences of the least Levenshtein distances found. We also specify that
-    the B array is scanned row by row. So:
-    - If the score (Lev dist) of a match is lower, that match is better, and hence it has lower priority
-    - The score being equal, a match with lower m came first (upper row) (regardless of n), hence the lower m match is better
-    - All else being equal (same score, same row), a match with lower n is better, because rows are scanned left-to-right
+That is, the row and column positions of B(m,n) in B (ie. [m,n]) are featured in the triplet and are part of the value.   
+This is because we must not admit the possibility of a tie between two B(m,n)'s, seeing as we want LSDLOOKUP to be stable in the sense that it always resolves ties in the same predictable way.
 
-This suggests a natural way to compare triplets, implemented in the Precedes function: "precedes" means "it's a better match"
+Note that throughout this algorithm, "better" match == LOWER priority : the "worst match thus far" has the highest priority.
+
+The spec of LSDLOOKUP says it returns the first K occurrences of the least Levenshtein distances found. We also specify that the B array is scanned row by row. So:
+- If the score (Lev dist) of a match is lower, that match is better, and hence it has lower priority
+- The score being equal, a match with lower m came first (upper row) (regardless of n), hence the lower m match is better
+- All else being equal (same score, same row), a match with lower n is better, because rows are scanned left-to-right.
+
+This suggests a natural way to compare triplets, implemented in the Precedes function: "precedes" means "it's a better match".
 
 The heap is implemented via an array with K+1 entries, BestK[x], where x = 0..K ; BestK[0] is never used, just ignore it
 Let's say K = 6. Here's the heap structure
