@@ -2,7 +2,7 @@
 (a "Best K matches" Priority Queue implementation) 
 by Hugo Diz, 2021
 
-This module implements a data structure for holding the "best K results so far", in the context of, given an input text A(h), scanning a (possibly 2D) array B row by row, testing the quality of a match between A(h) and each such B(m,n), then storing the critical info of that B(m,n) in the BestK max heap (if indeed it is among the best K matches so far).
+This module implements a data structure for holding the "best K results so far", in the context of scanning a (possibly 2D) array B row by row (given an input text A(h)), testing the quality of the match between A(h) and each such B(m,n), then storing the critical info of that B(m,n) in the BestK max heap (if indeed it is among the best K matches so far).
 
 The foundation of this technique is the well-known method of using a binary tree with an imposed "heap property" (ie. an hierarchy between nodes which is enforced all the time by occasionaly required nodes to switch contents). In our case, we define and tweak the specifics of these relationships and the acts of "enqueueing and dequeueing", in order to fit our purpose of keeping a record of the "best K matches so far", as well as a way to ensure we always efficiently get a sorted list of of the heap, once LSDLOOKUP is done scanning the alookup_array.
 
