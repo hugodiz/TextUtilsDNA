@@ -52,11 +52,11 @@ ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you
 ## Getting Started
 Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** add-in, in general, and any other ExcelDNA add-in, in particular.
 
-As a helpful reference by analogy, a very similar structure can be seen in the following github link, because those too are Excel functions made in .NET and exposed to Excel using ExcelDNA:
-https://github.com/Excel-DNA/XFunctions
-
 **Binary releases of TextUtilsDNA are hosted on GitHub:** https://github.com/hugodiz/TextUtilsDNA/releases   
 In principle, downloading a copy of either the 32 or 64-bit TextUtilsDNA **xll** binary and having Excel ready go on your end, then adding the **xll** as an "Excel addin" in the Developer tab, is all one should need to do in order to get the functions up and running
+
+As a helpful reference by analogy, a very similar structure can be seen in the following github link, because those too are Excel functions made in .NET and exposed to Excel using ExcelDNA:
+https://github.com/Excel-DNA/XFunctions
 
 However, I will also include a consolidated step-by-step approach, should you wish to build this project from scratch using Visual Studio but not at all be already familiar with that environment. I use Visual Studio Community 2017, which is free for individual developers. Both Visual Studio Community 2017 and Visual Studio Professional 2017 (if you're an enterprise) will work very well with ExcelDNA. This section will be written primarily for those who are quite at home with Excel and VBA and would like to expand that familiarity into the .NET/VisualStudio/ExcelDNA toolset. However, my instructions here won't preclude the need (or at least the very strong recommendation) that you have a look at the series of excellent YouTube tutorials by Govert on getting started with coding .NET functions for Excel via ExcelDNA:   
 https://www.youtube.com/user/govertvd
