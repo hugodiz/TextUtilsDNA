@@ -14,14 +14,14 @@ The best K results "thus far" are kept in a binary max-heap serving as a priorit
     - In other words, since the heap only holds K items, it automatically dequeues ("serves") the highest priority item to make room for a new item. Each such dequeued item is in this case discarded (ie. didn't make the best K)
 - At the end of the function, the items are dequeued in turn, "worst match first", until the heap is empty, except now the dequeued items are placed in the Output, as they represent the best K matches.
 
-## NOTE about ExceptionSafe and ThreadSafe functions:
+## Note about ExceptionSafe and ThreadSafe functions:
 The functions marked with ExceptionSafe and ThreadSafe are such because they should not to be able to encounter unhandled exceptions whilst in use. As per the ExcelDNA documentation, by specifying the function as ExceptionSafe and ThreadSafe it speeds it up considerably.
 
 The trade-off is that an automatic, back-end layer of function "baby-sitting" is removed and so if this Function were to actually encounter un unhandled exception whilst in usage, Excel would crash instead of just catching the exception and popping a notifying dialog box explaining the error.
 
 So, if you can get Excel to systematically crash when doing something with these functions, then you've probably found a bug, please let me know :)
 
-## NOTE about parallelization of loops in these functions:
+## Note about parallelization of loops in these functions:
 Excel parallelizes worksheet calculations by default where it can, say for instance when dragging down a VLOOKUP of single lookup_value inputs, over an very large column of lookup_value input cells.
 
 Some TextUtilsDNA functions (most notably LSDLOOKUP) implement some Parallel For loops instead of sequential ones.These parallel For's, when used here, are always trivial in that they're ideally paralellizable, namely:   
