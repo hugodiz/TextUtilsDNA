@@ -2,7 +2,7 @@
 High-performance text wrangling and fuzzy lookup functions for Excel, powered by .NET via ExcelDNA
 
 ## Introduction
-These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching are written in VB.NET and plugged-in to Excel as an **xll** (C API).
+These hopefully useful, general-purpose Excel worksheet functions for text processing and fuzzy matching are written in VB.NET and plugged-in to Excel as an **xll** add-in.
 
 These functions rely entirely on ExcelDNA (by Govert van Drimmelen) in order for them to be exposed as Excel functions.
 
