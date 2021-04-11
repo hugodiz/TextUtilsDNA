@@ -6,7 +6,7 @@ High-performance text wrangling and fuzzy lookup functions for Excel, powered by
 - by requiring matches to exhibit a regular expression pattern P (a P positive filter, if you will)
 - by requiring matches to NOT exhibit a regular expression pattern Q (a negative Q filter, if you wil)
 
-**UNPACK:** because LSDLOOKUP can optionally give back a match's coordinates in the lookup_array instead of the text itself, and because lookup_array is allowed to be 2D, we need a way to represent arrays in single cells (in this case containing a tuple [row index, column index]) - the convention we'll use is JSON. This function takes a JSON string representation of any 1D or 2D array(ie. [A(1), A(2), ..] or [[A(1,1), A(1,2), ..], [A(2,1), A(2,2), ..],..]) and produices the actual array. Note that 1D arrays are single rows (not columns) by convention.
+**UNPACK:** because LSDLOOKUP can optionally give back a match's coordinates in the lookup_array instead of the text itself, and because lookup_array is allowed to be 2D, we need a way to represent arrays in single cells (in this case containing a tuple [row index, column index]) - the convention we'll use is JSON. This function takes a JSON string representation of any 1D or 2D array(ie. [A(1), A(2), ..] or [[A(1,1), A(1,2), ..], [A(2,1), A(2,2), ..],..]) and produces an actual dynamic array from it (pieces of which can then be taken using the Excel built-in INDEX function). Note that 1D arrays are single rows (not columns) by convention.
 
 **TEXTSPLIT:** the inverse of the built-in Excel function TEXTJOIN. TEXTSPLIT takes a single (scalar input) string and returns a row containing each piece of the string, resulting from splitting the string according to a delimiter.
 
