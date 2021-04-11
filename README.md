@@ -39,7 +39,7 @@ https://github.com/Excel-DNA/XFunctions
 Binary releases are hosted on GitHub: (to do: set up releases and link)  
 In principle, downloading a copy of either the 32 or 64-bit TextUtilsDNA **xll** binary and having Excel ready go on your end, then adding the **xll** as an "Excel addin" in the Developer tab, is all one should need to do in order to get the functions up and running
 
-However, I will also include a consolidated step-by-step approach, should you wish to build this project from scratch using Visual Studio but not at all be already familiar with that environment. This section will be written primarily for those who are quite at home with Excel and VBA and would like to expand that familiarity into the .NET/VisualStudio/ExcelDNA toolset. However, my instructions here won't preclude the need (or at least the very strong recommendation) that you have a look at the series of excellent Youtube tutorials by Govert on getting started with coding .NET functions for Excel via ExcelDNA:   
+However, I will also include a consolidated step-by-step approach, should you wish to build this project from scratch using Visual Studio but not at all be already familiar with that environment. This section will be written primarily for those who are quite at home with Excel and VBA and would like to expand that familiarity into the .NET/VisualStudio/ExcelDNA toolset. However, my instructions here won't preclude the need (or at least the very strong recommendation) that you have a look at the series of excellent YouTube tutorials by Govert on getting started with coding .NET functions for Excel via ExcelDNA:   
 https://www.youtube.com/user/govertvd
 
 ## Examples
