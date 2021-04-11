@@ -20,7 +20,7 @@ Hence, depending on your project's size, performance and interoperability needs,
 As of 2021, ExcelDNA is one of the best ways to bring the power of .NET (C#/VB.NET/F#) to Excel. If this is new to you please visit:  
 https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna/  
 as a starting point.
-[asdasdasd](www.google.pt)
+
 These functions are ideally meant to be used with Excel 365, because they levarage the power of dynamic arrays.  
 However, calling LSDLOOKUP with a scalar lookup_value and K = 1 should work without problems in most Excel versions. Basically, you should be fine whenever one of these functions would return a scalar anyway.
 
@@ -54,7 +54,7 @@ Note in particular that, since this is all in an early stage, I expect we may fi
 
 1. The function returns #VALUE! when, by all accounts, it should be returning an actual, non-error value   
 2. The function returns an incorrect value, a value not in line with what the function spec says it should return, given the inputs   
-3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in the "ExcelFunctions - NOTES.md" doc  **=>**  "Note about ExceptionSafe and ThreadSafe functions".
+3. Calculating the function makes Excel crash (just closes without warning or message) - see how a bug might cause this to happen in [ExcelFunctions - NOTES.md](https://github.com/hugodiz/TextUtilsDNA/blob/main/Source/TextUtilsDNA/ExcelFunctions/ExcelFunctions%20-%20NOTES.md)  **=>**  "Note about ExceptionSafe and ThreadSafe functions".
 
 ## License
 The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
