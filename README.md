@@ -29,9 +29,12 @@ At the end of the day, if you can, you really should be using Excel 365, it's wo
 ExcelDNA will automatically produce 32 and 64-bit versions of the XLL if you build the project in Visual Studio - you'll then use the appropriate **xll** binary for your system (meaning, check the *bitness* of your Excel version).
 
 ## Getting Started
-Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** C API Excel add-in, in general, and any other ExcelDNA add-in, in particular.  
-So as a temporary workaround, a very similar arrangement and set of instructions can be seen in the following github link, because these too are Excel functions made in .NET and exposed to Excel using ExcelDNA:
+Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** C API Excel add-in, in general, and any other ExcelDNA add-in, in particular.
+
+As a helpful reference by analogy, a very similar structure can be seen in the following github link, because those too are Excel functions made in .NET and exposed to Excel using ExcelDNA:
 https://github.com/Excel-DNA/XFunctions
+
+
 
 ## Examples
 Documentation work in progress - in the meantime, I've tried to make the Excel IntelliSense auto-complete help as comprehensive as possible. I'll complement that with usage examples here.
