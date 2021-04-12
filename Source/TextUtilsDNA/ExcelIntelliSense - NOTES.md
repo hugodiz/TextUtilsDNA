@@ -5,7 +5,7 @@ This class contains code for embedding Excel auto-complete intellisense into the
 
 This style of IntelliSense mimicks the behaviour of inbuilt Excel formulae and is very useful.
 
-This implementation is what the ExcelDNA documentation refers to as 'Integrated mode' of IntelliSense (as opposed to 'Standalone mode'). In integrated mode, the TextUtilsDNA-AddIn.dna file contains a reference that "packs" ExcelDna.IntelliSense.dll into the TextUtilsDNA.xll final add-in file, as per the code below. Hence, all is contained is TextUtilsDNA.xll
+This implementation follows the ExcelDNA documentation strictly and is what is therein called 'Integrated mode' of IntelliSense (as opposed to 'Standalone mode'). In integrated mode, the TextUtilsDNA-AddIn.dna file contains a reference that "packs" ExcelDna.IntelliSense.dll into the TextUtilsDNA.xll final add-in file, as per the code below. Hence, all is contained is TextUtilsDNA.xll
 
 However, if you already have or prefer to have ExcelIntellisense running as an standalone add-In In your Excel, then instructions on doing this are available at    https://github.com/Excel-DNA/IntelliSense/releases   
 If using the standalone mode, then you won't need this code file (ExcelIntelliSense.vb) at all, because the standalone IntelliSense add-In will activated independently.
