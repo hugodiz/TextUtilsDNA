@@ -24,12 +24,12 @@ So, if you can get Excel to systematically crash when doing something with these
 ## Note about parallelization of loops in these functions:
 Excel parallelizes worksheet calculations by default where it can, say for instance when dragging down a VLOOKUP of single lookup_value inputs, over an very large column of lookup_value input cells.
 
-Some TextUtilsDNA functions (most notably LSDLOOKUP) implement some Parallel For loops instead of sequential ones.These parallel For's, when used here, are always trivial in that they're ideally paralellizable, namely:   
-- They're used when the function allows the main function input to be a range of independent scalar inputs
+Some TextUtilsDNA functions (most notably LSDLOOKUP) implement some Parallel For loops instead of sequential ones. These parallel For's, when used here, are always trivial in that they're ideally paralellizable, namely:   
+- They're used when the function allows the main function input to be a range of independent inputs
 - In LSDLOOKUP, that main input is a column A(Hx1) of lookup_value(s), each element being A(h)
 - Each parallel thread will only do work on a disjunct slice of A(start..end) and writes to a correspondingly disjunct slice of FnOutput(start..end, 1..K)
 - There are no data races because no thread ever attempts to write anywhere another thread might write to
-- Also, Read/Write operations to the Excel Session Caches are safe because we're using .NET Concurrent Dicts
+- Also, Read/Write operations to the Excel Session Caches are safe because we're using .NET Concurrent Dicts, and because even if bad timing were to cause a thread reading from the Cache to "miss" a value which technically had just been written onto the Cache by another thread, such a "miss", although regrettable and in theory not unavoidable, is just business as usual when using caches: nothing terrible would come out of it because Cache reads are always *tentative* by definition
 - The function will split the workloads uniformly over all available cores using 1 Thread per Core (like Excel does by default).
 
 The main point is that our deliberate .NET parallelization kicks-in precisely when Excel normal parallelization wouldn't: when calling these functions just once but with multi-cell A(Hx1) - It is essential to explicitly parallelize here.
