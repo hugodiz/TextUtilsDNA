@@ -29,16 +29,18 @@ Namespace TextUtilsDna
             Description:="Gets the number of occurrences of each text string in an input range")>
         Function GETCOUNTS(
             <ExcelArgument(Name:="text(s)",
-                           Description:="<[Range]> Range of Text string(s) A to analyze:
-A(HxW) : each A(h,w) = value as seen in Excel under ""General"" formatting
+                           Description:="<[Range]> Range A to analyze:
+Input is range A : each entry A(h,w) = value as seen in Excel under ""General"" formatting
 A Omitted : Output = #N/A
 A(h,w) = """" Or Empty Or Error : A(h,w) excluded
 Hint: =SORT(TEXTCOUNTS(A),[1 or 2], [1 or -1])")>
             texts As Object(,),
  _
             <ExcelArgument(Name:="[is_case_sensitive]",
-                           Description:="<[SCALAR]> Defaults to FALSE if Omitted or Empty")>
-            is_case_sensitive As Boolean) As Object
+                           Description:="<[SCALAR]> Case sensivity:
+TRUE : Text distinction is Case sensitive
+FALSE Or Ommitted Or Empty : Ignore Case")>
+            case_sensitive As Boolean) As Object
             ' *****************************************************************************************************************
             ' GETCOUNTS Function Implementation 
             ' -----------------------------------------------------------------------------------------------------------------
@@ -68,7 +70,7 @@ Hint: =SORT(TEXTCOUNTS(A),[1 or 2], [1 or -1])")>
                 For w = 0 To texts.GetLength(1) - 1
 
                     If TypeOf texts(h, w) Is ExcelError Or TypeOf texts(h, w) Is ExcelEmpty Then Continue For
-                    ThisText = If(is_case_sensitive, CStr(texts(h, w)), CStr(texts(h, w)).ToUpper())
+                    ThisText = If(case_sensitive, CStr(texts(h, w)), CStr(texts(h, w)).ToUpper())
                     If ThisText = "" Then Continue For
 
                     If FnFreqDict.ContainsKey(ThisText) Then
