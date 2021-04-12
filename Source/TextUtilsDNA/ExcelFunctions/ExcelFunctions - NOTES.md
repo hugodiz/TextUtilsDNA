@@ -36,6 +36,6 @@ The main point is that our deliberate .NET parallelization kicks-in precisely wh
 
 But why then not just restrict A to be a scalar (eg. LSDLOOKUP a single lookup_value and let Excel be parallel when dragging?
 
-Because we always pay the cost of reading any other inputs from Excel to .NET (eg. lookup_array) once per function call. Hence, dragging down, whilst convenient, can potentially add a lot of overhead redundant work.
+Because we always pay the cost of reading any other inputs from Excel to .NET (eg. lookup_array) once per function call. Hence, dragging down, whilst convenient, can potentially add a lot of overhead redundant work when there are big secondary input ranges, such as the lookup_array in LSDLOOKUP, which are just repeatedly being read into .NET over and over again, once per each "dragged-down" instance of the formula.
 
 As a result, calling LSDLOOKUP once with a large A(Hx1) lookup_values range will be much, much faster than calling LSDLOOKUP with a single lookup_value and dragging the formula down (assuming lookup_array B is also very large). However, this "being much faster" is only true so long as we do indeed parallelize (otherwise, dragging would probably end up being better).
