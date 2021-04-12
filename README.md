@@ -38,7 +38,7 @@ This code is itself open-source (MIT license) and these functions, whilst (hopef
 
 Hence, depending on your project's size, performance and interoperability needs, VB.NET might be a much better choice than VBA.  
 As of 2021, ExcelDNA is one of the best ways to bring the power of .NET (C#/VB.NET/F#) to Excel. If this is new to you please visit:  
-[https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna](https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna)
+[https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna](https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna)    
 as a starting point.
 
 These functions are ideally meant to be used with Excel 365, because they levarage the power of dynamic arrays.  
@@ -54,6 +54,7 @@ ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you
 Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** add-in, in general, and any other ExcelDNA add-in, in particular.
 
 **Binary releases of TextUtilsDNA are hosted on GitHub:** [https://github.com/hugodiz/TextUtilsDNA/releases](https://github.com/hugodiz/TextUtilsDNA/releases)   
+
 In principle, downloading a copy of either the 32 or 64-bit TextUtilsDNA **xll** binary and having Excel ready go on your end, then adding the **xll** as an "Excel addin" in the Developer tab, is all one should need to do in order to get the functions up and running
 
 As a helpful reference by analogy, a very similar structure can be seen in the following github link, because those too are Excel functions made in .NET and exposed to Excel using ExcelDNA:
