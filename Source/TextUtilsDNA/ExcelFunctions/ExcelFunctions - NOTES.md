@@ -38,4 +38,4 @@ But why then not just restrict A to be a scalar (eg. LSDLOOKUP a single lookup_v
 
 Because we always pay the cost of reading any other inputs from Excel to .NET (eg. lookup_array) once per function call. Hence, dragging down, whilst convenient, can potentially add a lot of overhead redundant work.
 
-As a result, calling LSDLOOKUP once with a large A(Hx1) lookup_values range will be much, much faster than calling LSDLOOKUP with a single lookup_value and dragging the formula (assuming lookup_array B is also very large). However, this is only true so long as we do indeed parallelize (otherwise dragging would end up being better).
+As a result, calling LSDLOOKUP once with a large A(Hx1) lookup_values range will be much, much faster than calling LSDLOOKUP with a single lookup_value and dragging the formula down (assuming lookup_array B is also very large). However, this "being much faster" is only true so long as we do indeed parallelize (otherwise, dragging would probably end up being better).
