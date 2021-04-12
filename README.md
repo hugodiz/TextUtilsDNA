@@ -23,8 +23,7 @@ These hopefully useful, general-purpose Excel worksheet functions for text proce
 
 These functions rely entirely on ExcelDNA (by Govert van Drimmelen) in order for them to be exposed as Excel functions.
 
-The UNPACK utility function also uses the extremely popular .NET library NewtonSoft.Json (by James Newton-King):  
-https://www.newtonsoft.com/json  
+The UNPACK utility function also uses the extremely popular .NET library [NewtonSoft.Json](https://www.newtonsoft.com/json) (by James Newton-King):    
 Here I use it for deserialization of Excel arrays encoded as JSON strings.
 
 I have attempted to optimize these functions, including using parallelization in a way analogous to what Excel does where it can, when using built-in functions. For more details on the approach, see [ExcelFunctions - NOTES.md](https://github.com/hugodiz/TextUtilsDNA/blob/main/Source/TextUtilsDNA/ExcelFunctions/ExcelFunctions%20-%20NOTES.md)  **=>**  "Note about parallelization of loops in these functions".
