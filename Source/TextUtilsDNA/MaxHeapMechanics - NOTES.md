@@ -71,7 +71,7 @@ The heap always maintains the following property, whenever something is enqueued
     - candidate staying in BestK[1]
 - If candidate moved (into either BestK[2] or BestK[3]), then repeat the check (this time based on the candidate initially being on BestK[2] or BestK[3] and potentially moving further)
 - If candidate hasn't moved (which must happen eventually), then it's settled at that point and the heap property is guaranteed to hold
-- Note how the insertion of a node always takes a logarithmic(K) number of operations, in terms of time complexity
+- Note how the insertion of a node always takes a logarithmic(K) number of operations, in terms of time complexity, since the worst-case number of operations required to settle a node is proportional to number of *generations / depth* of the heap, and not the number of nodes in the heap.
 
 ## Dequeue:
 By the end of scanning B, whatever the heap holds are the best K matches found for our A(h). How to retrieve them in order?
