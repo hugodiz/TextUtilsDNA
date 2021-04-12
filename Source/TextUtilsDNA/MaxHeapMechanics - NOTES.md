@@ -10,7 +10,7 @@ The match value of any given B(m,n) (ie. its priority) is represented by a tripl
 **(** Levenshtein Distance to A(h) **,** m **,** n **)**   
 
 That is, the row and column positions of B(m,n) in B (ie. [m,n]) are featured in the triplet and are part of the value.   
-This is because we must not admit the possibility of a tie between two B(m,n)'s, seeing as we want LSDLOOKUP to be stable in the sense that it always resolves ties in the same predictable way.
+This is because we must not admit the possibility of a "tie" between two B(m,n)'s just because they have the same Lev distance to A(h), since our spec specifies that it will return the first found match in that scenario. This way, we can be sure no two actual matches can technically be duplicate.
 
 Note that throughout this algorithm, "better" match == LOWER priority : the "worst match thus far" has the highest priority.
 
