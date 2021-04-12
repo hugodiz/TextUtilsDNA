@@ -1,6 +1,8 @@
 # TextUtilsDNA
 High-performance text wrangling and fuzzy lookup functions for Excel, powered by .NET via ExcelDNA
 
+## Spec Summary:
+
 **LSDLOOKUP:** takes a column of lookup_values and retrieves the K closest matches to each lookup_value, as found in a lookup_array, where "closest" means "least typos", and the "number of typos" is the Levenshtein distance between 2 text strings (check out the wikipedia page for Levenshtein Distance if unfamiliar). Searches may be narrowed down in 3 possible ways simultaneously: 
 - by defining a maximum allowed Levenshtein Distance
 - by requiring matches to exhibit a regular expression pattern P (a P positive filter, if you will)
