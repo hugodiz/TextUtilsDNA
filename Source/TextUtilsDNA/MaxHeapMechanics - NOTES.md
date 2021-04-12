@@ -93,7 +93,7 @@ Note how dropping K anchors takes K * log(k) time, because you insert a node (wh
 
 The beauty of this arrangement is that the iterative scanning of B (say it has M elements) costs M * log(K) in total. Then the sorting of the best K takes K * log(K). Because these are separate steps and you only sort once at the end, the total is M * log(K) + K * log(K), which assymptotically is just M * log(K), which means the K * log(K) gets *amortized* in the grand scheme of things.
 
-A more naive approach might use a linear K-array (say best-to-worst == left-to-right) and just insert each new match in each proper place by (worst-case) scanning the entire K-array each time a new top-K match were found, and discarding the right-most element when needed. This would cost M * K time. 
+A more naive approach might use a linear K-array (say best-to-worst == left-to-right) and just insert each new match in each proper place by (worst-case) scanning the entire K-array each time a new top-K-worthy match were found, and discarding the right-most element when needed. This would cost M * K time. 
 
 So the difference between the naive M * K and our M * log(K) is due to the fact that we're not paying the cost of keeping our BestK holder sorted all the time - instead, we only bother to properly sort it once, at the end, which is all that's needed.
 
