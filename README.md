@@ -53,7 +53,7 @@ ExcelDNA will automatically produce 32 and 64-bit versions of the **xll** if you
 ## Getting Started
 Documentation work in progress - but it's going to be pretty much the same process one would go through with any other **xll** add-in, in general, and any other ExcelDNA add-in, in particular.
 
-**Binary releases of TextUtilsDNA are hosted on GitHub:** [https://github.com/hugodiz/TextUtilsDNA/releases](https://github.com/hugodiz/TextUtilsDNA/releases)
+**Binary releases of TextUtilsDNA are hosted on GitHub:** [https://github.com/hugodiz/TextUtilsDNA/releases](https://github.com/hugodiz/TextUtilsDNA/releases)   
 In principle, downloading a copy of either the 32 or 64-bit TextUtilsDNA **xll** binary and having Excel ready go on your end, then adding the **xll** as an "Excel addin" in the Developer tab, is all one should need to do in order to get the functions up and running
 
 As a helpful reference by analogy, a very similar structure can be seen in the following github link, because those too are Excel functions made in .NET and exposed to Excel using ExcelDNA:
@@ -78,7 +78,7 @@ Note in particular that, since this is all in an early stage, I expect we may fi
 
 ## License
 The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
-[https://excel-dna.net](https://excel-dna.net)   
+[https://excel-dna.net](https://excel-dna.net)           
 [https://github.com/Excel-DNA/ExcelDna](https://github.com/Excel-DNA/ExcelDna)
 
 Hugo Diz
