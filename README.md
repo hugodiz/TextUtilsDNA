@@ -38,7 +38,7 @@ This code is itself open-source (MIT license) and these functions, whilst (hopef
 
 Hence, depending on your project's size, performance and interoperability needs, VB.NET might be a much better choice than VBA.  
 As of 2021, ExcelDNA is one of the best ways to bring the power of .NET (C#/VB.NET/F#) to Excel. If this is new to you please visit:  
-[https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna/](https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna/)
+[https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna](https://docs.excel-dna.net/what-and-why-an-introduction-to-net-and-excel-dna)
 as a starting point.
 
 These functions are ideally meant to be used with Excel 365, because they levarage the power of dynamic arrays.  
