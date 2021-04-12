@@ -17,7 +17,7 @@ The best K results "thus far" are kept in a binary max-heap serving as a priorit
 ## Note about ExceptionSafe and ThreadSafe functions:
 The functions marked with ExceptionSafe and ThreadSafe are such because they should not to be able to encounter unhandled exceptions whilst in use. As per the ExcelDNA documentation, by specifying the function as ExceptionSafe and ThreadSafe it speeds it up considerably.
 
-The trade-off is that an automatic, back-end layer of function "baby-sitting" is removed and so if this Function were to actually encounter un unhandled exception whilst in usage, Excel would crash instead of just catching the exception and popping a notifying dialog box explaining the error.
+The trade-off is that an automatic, back-end layer of function "baby-sitting" is removed and so if this function were to actually encounter an unhandled exception whilst in usage, Excel would crash instead of just catching the exception and popping a notifying dialog box explaining the error.
 
 So, if you can get Excel to systematically crash when doing something with these functions, then you've probably found a bug, please let me know :)
 
