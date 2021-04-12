@@ -4,7 +4,7 @@ by Hugo Diz, 2021
 
 This module implements a data structure for holding the "best K results so far", in the context of scanning a (possibly 2D) array B row by row (given an input text A(h)), testing the quality of the match between A(h) and each such B(m,n), then storing the critical info of B(m,n) in the BestK max heap (if indeed it sits among the best K matches so far).
 
-The foundation of this technique is the well-known method of using a binary tree with an imposed "heap property" (ie. an hierarchy between nodes which is enforced all the time by occasionaly requiring nodes to switch contents). In our case, we define and tweak the specifics of these relationships and the acts of "enqueueing" and "dequeueing", in order to fit our purpose of keeping a record of the "best K matches so far", as well as a way to ensure we always efficiently get a sorted list out of the heap, once LSDLOOKUP is done scanning the lookup_array B.
+The foundation of this technique is the well-known method of using a binary tree with an imposed "heap property" (ie. an hierarchy between nodes which is enforced all the time by requiring nodes to switch contents where needed). In our case, we define and tweak the specifics of these relationships and the acts of "enqueueing" and "dequeueing", in order to fit our purpose of keeping a record of the "best K matches so far", as well as a way to ensure we always efficiently get a sorted list out of the heap, once LSDLOOKUP is done scanning the lookup_array B.
 
 The match value of any given B(m,n) (ie. its priority) is represented by a triplet of integers   
 **(** Levenshtein Distance to A(h) **,** m **,** n **)**   
