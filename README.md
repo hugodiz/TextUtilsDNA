@@ -78,7 +78,7 @@ Note in particular that, since this is all in an early stage, I expect we may fi
 
 ## License
 The TextUtilsDNA VB.NET functions are published under the standard MIT license, with the associated Excel integration relying on ExcelDNA (Zlib License):   
-[https://excel-dna.net/](https://excel-dna.net/)
+[https://excel-dna.net](https://excel-dna.net)   
 [https://github.com/Excel-DNA/ExcelDna](https://github.com/Excel-DNA/ExcelDna)
 
 Hugo Diz
