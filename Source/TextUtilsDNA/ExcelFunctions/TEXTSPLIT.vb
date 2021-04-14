@@ -31,7 +31,7 @@ FALSE - Include empty entries")>
  _
             <ExcelArgument(Name:="text",
                            Description:="<[SCALAR]> The text to split")>
-            text As Object) As Object
+            text As Object(,)) As Object
             ' *****************************************************************************************************************
             ' TEXTSPLIT Function Implementation 
             ' -----------------------------------------------------------------------------------------------------------------
@@ -43,12 +43,12 @@ FALSE - Include empty entries")>
             '     in a row, per each input text
             ' Also, the simplicity of the function and the fact that no large arrays are being read to .NET per function call
             ' means the inherent parallelization of Excel when dragging down TEXTSPLIT is optimization enough
-            If TypeOf text Is Object(,) OrElse TypeOf text Is ExcelMissing Then Return ExcelError.ExcelErrorValue
+            If text.GetLength(0) > 1 OrElse text.GetLength(1) > 1 OrElse TypeOf text(0, 0) Is ExcelMissing Then Return ExcelError.ExcelErrorValue
 
             ' Edge cases
-            If TypeOf text Is ExcelEmpty Then Return ""
-            If TypeOf text Is ExcelError Then Return text
-            Dim FnText = CStr(text)
+            If TypeOf text(0, 0) Is ExcelEmpty Then Return ""
+            If TypeOf text(0, 0) Is ExcelError Then Return text
+            Dim FnText = CStr(text(0, 0))
             If FnText.Length = 0 Then Return ""
 
             Dim FnSplitStrArr = FnText.Split({delimiter}, If(ignore_empty, StringSplitOptions.RemoveEmptyEntries, StringSplitOptions.None))

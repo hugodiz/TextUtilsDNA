@@ -33,7 +33,7 @@ Namespace TextUtilsDna
             <ExcelArgument(Name:="packed_range",
                            Description:=
             "<[SCALAR]> The JSON text representation of a 1D or 2D array A i.e. [A(1),A(2),..] or [[A(1,1),A(1,2),..],[A(2,1),A(2,2),..],..]")>
-            packed As Object) As Object
+            packed As Object(,)) As Object
             ' *****************************************************************************************************************
             ' UNPACK Function Implementation 
 
@@ -41,12 +41,12 @@ Namespace TextUtilsDna
             '     per each packed_range
             ' Also, the simplicity of the function and the fact that no large arrays are being read to .NET per function call
             ' means the inherent parallelization of Excel when dragging UNPACK (if geometrically sound) is optimization enough
-            If TypeOf packed Is Object(,) OrElse TypeOf packed Is ExcelMissing Then Return ExcelError.ExcelErrorValue
+            If packed.GetLength(0) > 1 OrElse packed.GetLength(1) > 1 OrElse TypeOf packed(0, 0) Is ExcelMissing Then Return ExcelError.ExcelErrorValue
 
             ' Edge cases
-            If TypeOf packed Is ExcelEmpty Then Return ""
-            If TypeOf packed Is ExcelError Then Return packed
-            Dim FnPacked = CStr(packed)
+            If TypeOf packed(0, 0) Is ExcelEmpty Then Return ""
+            If TypeOf packed(0, 0) Is ExcelError Then Return packed
+            Dim FnPacked = CStr(packed(0, 0))
             If FnPacked.Length = 0 Then Return ""
 
             Try
