@@ -114,12 +114,10 @@ Hint: If B is 2D then =INDEX(UNPACK(""[m,n]"", [1 Or 2]) gets each coord")>
                     1,
                     If(k_results > 1024,
                         1024,
-                        If(k_results > TotalBs,
-                            TotalBs,
-                            k_results
-                        )
+                        k_results
                     )
                 )
+            If FnK > TotalBs Then FnK = TotalBs
 
             ' lookup_values must be a column, not a 2D array, because we want to in general be able to output 
             '     a whole row of K matches per each lookup_value
