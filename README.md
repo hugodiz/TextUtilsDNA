@@ -1,4 +1,4 @@
-# TextUtilsDNA (Excel .xll Add-In)
+# TextUtilsDNA (an Excel .xll Add-In)
 High-performance text wrangling and fuzzy lookup functions for Excel, powered by .NET via ExcelDNA   
 
 ## Spec Summary:
